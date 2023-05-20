@@ -9,7 +9,6 @@ class RootApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("debug");
     return const Placeholder();
   }
 }
