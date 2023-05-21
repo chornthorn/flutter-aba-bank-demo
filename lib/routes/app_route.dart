@@ -1,5 +1,6 @@
 import 'package:aba_bank_mobile/views/main_page.dart';
 import 'package:aba_bank_mobile/views/notification/notification_page.dart';
+import 'package:aba_bank_mobile/views/password/password_page.dart';
 import 'package:aba_bank_mobile/views/phone_call/phone_call_page.dart';
 import 'package:flutter/material.dart';
 
