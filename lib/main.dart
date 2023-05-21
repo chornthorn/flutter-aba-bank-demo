@@ -1,5 +1,5 @@
+import 'package:aba_bank_mobile/routes/app_route.dart';
 import 'package:aba_bank_mobile/utilities/constants.dart';
-import 'package:aba_bank_mobile/views/main_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +13,7 @@ class RootApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'ABA Bank Mobile update',
-      home: MainPage(),
+      onGenerateRoute: appRoute,
       theme: ThemeData(
         colorScheme: ColorScheme.light(
           primary: primaryColor,
