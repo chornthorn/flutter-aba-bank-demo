@@ -12,7 +12,7 @@ class RootApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ABA Bank Mobile',
+      title: 'ABA Bank Mobile update',
       home: MainPage(),
       theme: ThemeData(
         colorScheme: ColorScheme.light(
