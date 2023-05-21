@@ -1,3 +1,5 @@
+import 'package:aba_bank_mobile/utilities/constants.dart';
+import 'package:aba_bank_mobile/views/main_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,6 +11,16 @@ class RootApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      title: 'ABA Bank Mobile update',
+      home: MainPage(),
+      theme: ThemeData(
+        colorScheme: ColorScheme.light(
+          primary: primaryColor,
+          secondary: secondaryColor,
+          error: redColor,
+        ),
+      ),
+    );
   }
 }
