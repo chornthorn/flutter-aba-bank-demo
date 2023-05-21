@@ -1,3 +1,4 @@
+import 'package:aba_bank_mobile/utilities/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
@@ -134,65 +135,121 @@ class _MainPageState extends State<MainPage> {
       ),
       body: Column(
         children: [
-          Flexible(
-            flex: 4,
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: RadialGradient(
-                  colors: [
-                    Colors.white,
-                    colorScheme.primary,
-                  ],
-                ),
+          Container(
+            decoration: BoxDecoration(
+              gradient: RadialGradient(
+                colors: [
+                  Colors.white,
+                  colorScheme.primary,
+                ],
               ),
-              child: GridView.count(
-                crossAxisCount: 3,
-                shrinkWrap: true,
-                mainAxisSpacing: 1.0,
-                crossAxisSpacing: 1.0,
-                childAspectRatio: 1.0,
-                physics: NeverScrollableScrollPhysics(),
-                children: [
-                  ...List.generate(
-                    CardMenuModel.list.length,
-                    (index) => Container(
-                      color: colorScheme.primary,
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              CardMenuModel.list[index].icon,
+            ),
+            child: GridView.count(
+              crossAxisCount: 3,
+              shrinkWrap: true,
+              mainAxisSpacing: 1.0,
+              crossAxisSpacing: 1.0,
+              childAspectRatio: 1.0,
+              physics: NeverScrollableScrollPhysics(),
+              children: [
+                ...List.generate(
+                  CardMenuModel.list.length,
+                  (index) => Container(
+                    color: colorScheme.primary,
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            CardMenuModel.list[index].icon,
+                            color: colorScheme.secondary,
+                            size: 34,
+                          ),
+                          SizedBox(height: 14),
+                          Text(
+                            CardMenuModel.list[index].title,
+                            style: TextStyle(
                               color: colorScheme.secondary,
-                              size: 32,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w300,
                             ),
-                            SizedBox(height: 16),
-                            Text(
-                              CardMenuModel.list[index].title,
-                              style: TextStyle(
-                                color: colorScheme.secondary,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Container(
+                    color: colorScheme.error,
+                    padding: const EdgeInsets.all(16),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Quick Transfer',
+                          style: TextStyle(
+                            color: colorScheme.secondary,
+                            fontSize: 26,
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                        Icon(
+                          PhosphorIcons.thin.arrowsClockwise,
+                          color: colorScheme.secondary,
+                          size: 46,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    color: cyanColor,
+                    padding: const EdgeInsets.all(16),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Quick Payment',
+                          style: TextStyle(
+                            color: colorScheme.secondary,
+                            fontSize: 26,
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                        Icon(
+                          PhosphorIcons.thin.money,
+                          color: colorScheme.secondary,
+                          size: 46,
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              ],
             ),
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: colorScheme.error,
-        child: Icon(
-          PhosphorIcons.regular.qrCode,
-          color: Colors.white,
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {},
+      //   backgroundColor: colorScheme.error,
+      //   child: Icon(
+      //     PhosphorIcons.regular.qrCode,
+      //     color: Colors.white,
+      //   ),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
           splashColor: Colors.transparent,
@@ -263,84 +320,6 @@ class _MainPageState extends State<MainPage> {
           ],
         ),
       ),
-      /* bottomNavigationBar: BottomAppBar(
-        color: colorScheme.primary,
-        shape: CircularNotchedRectangle(),
-        notchMargin: 6,
-        child: Padding(
-          padding: const EdgeInsets.only(top: 6),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    currentIndex = 0;
-                  });
-                },
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(PhosphorIcons.regular.house,
-                        color: currentIndex == 0
-                            ? colorScheme.secondary
-                            : colorScheme.secondary.withOpacity(0.65)),
-                    const SizedBox(height: 4),
-                    Text(
-                      'Home',
-                      style: TextStyle(color: colorScheme.secondary),
-                    ),
-                  ],
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    currentIndex = 1;
-                  });
-                },
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      PhosphorIcons.regular.creditCard,
-                      color: currentIndex == 1
-                          ? colorScheme.secondary
-                          : colorScheme.secondary.withOpacity(0.65),
-                    ),
-                    const SizedBox(height: 4),
-                    Text('Cards'),
-                  ],
-                ),
-              ),
-              const SizedBox(width: 24),
-              const SizedBox(width: 24),
-              GestureDetector(
-                onTap: () {},
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(PhosphorIcons.regular.mapPin),
-                    const SizedBox(height: 4),
-                    Text('Location'),
-                  ],
-                ),
-              ),
-              GestureDetector(
-                onTap: () {},
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(PhosphorIcons.regular.user),
-                    const SizedBox(height: 4),
-                    Text('Account'),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),*/
     );
   }
 }

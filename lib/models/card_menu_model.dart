@@ -24,27 +24,27 @@ class CardMenuModel {
   static List<CardMenuModel> list = [
     CardMenuModel(
       title: 'Account',
-      icon: PhosphorIcons.regular.wallet,
+      icon: PhosphorIcons.fill.identificationCard,
     ),
     CardMenuModel(
       title: 'Cards',
-      icon: PhosphorIcons.regular.creditCard,
+      icon: PhosphorIcons.fill.creditCard,
     ),
     CardMenuModel(
       title: 'Payments',
-      icon: PhosphorIcons.regular.money,
+      icon: PhosphorIcons.fill.currencyCircleDollar,
     ),
     CardMenuModel(
       title: 'New Account',
-      icon: PhosphorIcons.regular.plus,
+      icon: PhosphorIcons.fill.bank,
     ),
     CardMenuModel(
-      title: 'cash to ATM',
-      icon: PhosphorIcons.regular.money,
+      title: 'Cash to ATM',
+      icon: PhosphorIcons.fill.money,
     ),
     CardMenuModel(
       title: 'Transfer',
-      icon: PhosphorIcons.regular.arrowsClockwise,
+      icon: PhosphorIcons.fill.arrowsClockwise,
     ),
     CardMenuModel(
       title: 'Scan QR',
@@ -56,7 +56,7 @@ class CardMenuModel {
     ),
     CardMenuModel(
       title: 'Locations',
-      icon: PhosphorIcons.regular.mapPin,
+      icon: PhosphorIcons.fill.mapPin,
     ),
   ];
 }
